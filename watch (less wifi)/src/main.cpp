@@ -18,7 +18,7 @@ ESP32Time rtc(0);
 #define OLED_CS    5
 #define OLED_RESET 2
 
-const int buttonPin = 4;
+const int buttonPin = 13;
 int buttonState = 0;
 int State=0;
 
@@ -74,6 +74,7 @@ void bars(){
 void setup() {
     Serial.begin(115200);
     pinMode(buttonPin, INPUT);
+    Wire.begin(26,25);
     WiFi.begin("Wokwi-GUEST", "", 6);
 
   while (WiFi.status() != WL_CONNECTED) {
